@@ -1,0 +1,49 @@
+services:
+  mongo:
+    image: mongo:6
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - appnet
+
+  backend:
+    build: ./backend
+    image: shriyasha/mean-backend:latest
+    restart: always
+    environment:
+      - PORT=8080
+      # Most bezkoder apps use something like mongodb://localhost:27017/bezkoder_db
+      # We'll set a common variable; if your code uses a different name, we'll fix it below.
+      - MONGO_URL=mongodb://mongo:27017/dd_db
+    depends_on:
+      - mongo
+    networks:
+      - appnet
+
+  frontend:
+    build: ./frontend
+    image: shriyasha/mean-frontend:latest
+    restart: always
+    depends_on:
+      - backend
+    networks:
+      - appnet
+
+  nginx:
+    build: ./nginx
+    image: shriyasha/mean-nginx:latest
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - appnet
+
+volumes:
+  mongo_data:
+
+networks:
+  appnet:
