@@ -67,6 +67,13 @@ curl -i http://localhost/api/tutorials
 ### Stop
 docker compose down
 
+Screenshots proof:
+### App UI – Tutorials list
+![App UI – Tutorials list](screenshots/local-ui.png)
+
+### App UI – Add tutorial
+![App UI – Add tutorial](screenshots/local-ui1.png)
+
 ---
 ### Docker Hub Images
 Published Docker images:
@@ -75,6 +82,9 @@ Published Docker images:
 - shriyasha/mean-frontend
 - shriyasha/mean-nginx
 - Screenshot proof:
+  
+### Docker Hub – Repositories
+![Docker Hub – Repositories](screenshots/Docker%20Hub%20%E2%80%93%20Repositories.png)
 
 ---
 ### CI/CD (GitHub Actions)
@@ -92,3 +102,11 @@ Repo → Settings → Secrets and variables → Actions
 - DOCKERHUB_TOKEN = Docker Hub Access Token (Read & Write)
 
 Screenshots proof:
+### GitHub Actions – Workflows page
+![GitHub Actions – Workflows page](screenshots/GitHub%20Actions%20%E2%80%93%20Workflows%20page.png)
+
+### GitHub Actions – Successful run (summary)
+![GitHub Actions – Successful run](screenshots/GitHub%20Actions%20%E2%80%93%20Successful%20run%20.png)
+
+### GitHub Actions – Successful run (Build/Push steps)
+![GitHub Actions – Build/Push steps](screenshots/GitHub%20Actions%20%E2%80%93%20Successful%20run%20(Build%3APush%20steps).png)
